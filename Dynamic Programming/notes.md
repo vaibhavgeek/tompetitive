@@ -1,4 +1,4 @@
-## This is for Notes.  <br/>
+## Dynamic Programming Notes  <br/>
 
 ### KnapSack Problem
 Given weights and values of n items, put these items in a knapsack of
