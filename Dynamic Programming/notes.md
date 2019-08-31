@@ -1,4 +1,4 @@
-## This is for Notes.  <br/>
+## Dynamic Programming Notes  <br/>
 
 ### KnapSack Problem
 Given weights and values of n items, put these items in a knapsack of
@@ -12,7 +12,8 @@ either pick the complete item, or don’t pick it (0-1 property)
 
 In this problem we define dp[i][j] as i value and for j knapsack capacity. That is for j capacity how much maximum value it can store. 
 
-``` if( j < wt[i]) 
+```
+if( j < wt[i]) 
 		dp[i][j] = dp[i-1][j];
 	else 
 		dp[i][j] = max(dp[i-1][j - wt[i]] + val[i] , dp[i-1][j]);
