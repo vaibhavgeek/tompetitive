@@ -1,61 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long 
-struct  Edge
-{
-	int src, dest;
-};
+
 struct subset
 {
-	int parent;
-	int rank;
+	ll parent;
+	ll rank;
 };
 struct Graph
 {
-	int V,E;
-	struct Edge* edge;
+	ll V;
 };
-struct  Graph* createGraph(int V, int E)
-{
-	struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
-	graph->V = V;
-	graph->E = E;
-	graph->edge = (struct Edge*)malloc(graph->E * sizeof(struct Edge));
-	return graph;
-};
-int find(struct subset subsets[], int i)
+ll find(struct subset subsets[], ll i)
 {
 	if(subsets[i].parent != i)
 		subsets[i].parent = find(subsets, subsets[i].parent);
 	return subsets[i].parent;
 }
-void Union(struct subset subsets[], int x, int y)
+void Union(struct subset subsets[], ll x, ll y)
 {
-	int xroot = find(subsets,x);
-	int yroot = find(subsets,y);
+	ll xroot = find(subsets,x);
+	ll yroot = find(subsets,y);
 
 	if(subsets[xroot].rank < subsets[yroot].rank)
 		subsets[xroot].parent = yroot;
 	else if(subsets[xroot].rank > subsets[yroot].rank)
 		subsets[yroot].parent = xroot;
 	else
-	{
-		subsets[yroot].parent = xroot;
-		subsets[xroot].rank++; 
-	}
-}
-int isCycle(struct Graph* graph) 
-{
-	int V = graph->V;
-	int E = graph->E;
-	struct subset* subsets = (struct subset*)malloc(V * sizeof(struct subset));
-	for(int v=0;v<V;v++)
-	{
-		subsets[v].parent = v;
-		subsets[v].rank = 0;
-	}
+		return;
 	
 }
+
 int main()
 {
 	ll t;
@@ -63,21 +38,34 @@ int main()
 	while(t--)
 	{
 		ll n; cin>>n;
-		ll s[n];
+		ll s[n] = {0};
 		for(int i=0;i<n;i++) cin>>s[i];
+		
 		ll q; cin>>q;
+		Graph graph; graph.V = n; 
+		subset subsets[n];
+		for(int i=0;i<n;i++)
+		{
+			subsets[i].parent = i;
+			subsets[i].rank = s[i];
+		}
 		for(int i=0;i<q;i++)
 		{
 			ll k;
 			cin>>k;
 			if(k)
 			{
-				ll x; cin>>x;
+				ll x; cin>>x; x--;
+				cout<<find(subsets, x)+1<<endl;
 			}
 			else
 			{
 				ll x,y;
-				cin>>x>>y;
+				cin>>x>>y; x--; y--;
+				int px = find(subsets, x);
+				int py = find(subsets, y);
+				if(px==py) cout<<"Invalid query!"<<endl;
+				else Union(subsets,px,py);	
 			}
 		}
 	}
