@@ -48,7 +48,7 @@ int main()
 	int *segmentTree = new int[se];  
 
 
-	for(int i=0;i<se;i++) segmentTree[i] = -1;
+	for(int i=0;i<se;i++) segmentTree[i] = 0;
 	for(int i=0;i<n;i++) cin>>arr[i];
 	constructTree(arr, segmentTree, 0, n-1, 0);
 
