@@ -40,9 +40,7 @@ int main()
 		ll xi,yi; cin>>xi>>yi;
 		constructTree(arr, segmentTree, 0 , n-1, 0);
 		cout<<rangMinQuery(segmentTree , xi, yi, 0, n-1, 0)<<" ";
-
-
 	}
-
+	return 0;
 
 }
