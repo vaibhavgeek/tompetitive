@@ -18,6 +18,7 @@ void updateTree(int *segmentTree, int low, int high, int diff, int pos, int i)
 		updateTree(segmentTree, mid+1, high, diff, 2*pos + 2, i);
 	}
 }
+
 int *constructTree(int inputA[], int *segmentTree, int low, int high, int pos)
 {
 	if(low == high)
@@ -41,10 +42,10 @@ int main()
 {
 	int n;
 	cin>>n;
+	int arr[n]; 
+
 	int pos = ceil(log2(n));
 	int se = 2*pow(2,pos) - 1;
-
-	int arr[n]; 
 	int *segmentTree = new int[se];  
 
 
