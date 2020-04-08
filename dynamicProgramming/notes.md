@@ -43,3 +43,4 @@ The maximum subarray problem is the task of finding the largest possible sum of 
 ### Longest Increasing Subsequence 
 The Longest Increasing Subsequence (LIS) problem is to find the length of the longest subsequence of a given sequence such that all elements of the subsequence are sorted in increasing order.
 
+### Coinchange Problem 
