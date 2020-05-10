@@ -2,7 +2,8 @@
 using namespace std;
 #define ll long long
 int main() {
-    ll t;cin>>t;
+    ll t;
+    cin>>t;
     while(t--){
             int n;
             cin>>n;
