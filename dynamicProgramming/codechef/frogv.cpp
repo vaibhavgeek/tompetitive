@@ -40,6 +40,7 @@ int main()
 	{
 		ll p1; ll p2;
 		cin>>p1>>p2;
+		p1--; p2--;
 		if(dp[p1] == dp[p2])
 			cout<<"Yes"<<endl;
 		else
